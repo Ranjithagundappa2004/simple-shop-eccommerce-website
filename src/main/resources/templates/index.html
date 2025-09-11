@@ -1,0 +1,94 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Simple Shop - Home</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: "Spline Sans", sans-serif; }
+    :root { --primary-color: #38e07b; }
+    .text-primary { color: var(--primary-color); }
+    .bg-primary { background-color: var(--primary-color); }
+  </style>
+</head>
+<body class="bg-[#1a1a1a] text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 bg-[#1a1a1a]/90 backdrop-blur-sm z-50 shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-primary">Simple Shop</h1>
+      <div class="flex gap-4">
+        
+        <a th:if="${user==null}" href="/register" class="hover:text-primary">Register</a>
+        
+        <a  href="/login" class="hover:text-primary">Login</a>
+		<a href="/register" class="hover:text-primary">Sign Up</a>
+
+        <!-- Admin Button -->
+        <a href="/admin/login" class="hover:text-primary font-bold border border-primary px-3 py-1 rounded">Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center justify-center text-center px-4 bg-gray-900" 
+           style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('/images/banner.jpg'); 
+                  background-size: cover; background-position: center;">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-4">Welcome to Simple Shop</h1>
+        <p class="text-lg md:text-xl text-gray-300 mb-8">
+          Discover amazing products at unbeatable prices. Find what you love and make it yours today!
+        </p>
+        <a href="#products" class="inline-block bg-primary px-8 py-4 text-lg font-bold text-[#111714] rounded-full hover:scale-105 transition-transform shadow-lg">
+          Shop Now
+        </a>
+      </div>
+  </section>
+
+  <!-- Products Section -->
+  <main class="flex-grow container mx-auto px-4 py-8" id="products">
+    <h2 class="text-3xl font-bold text-center mb-8">Available Products</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div th:each="p : ${products}" class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition-all duration-300">
+        
+        <div class="relative h-64 w-full">
+          <img th:if="${p.imagePath != null}" th:src="@{${p.imagePath}}" alt="Product Image" class="h-full w-full object-cover"/>
+          <div th:if="${p.imagePath == null}" class="h-full w-full flex items-center justify-center bg-gray-700 text-gray-400">
+            No Image
+          </div>
+          <div class="absolute inset-0 bg-black/20 hover:bg-black/40 transition-colors"></div>
+        </div>
+
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2" th:text="${p.name}">Product Name</h3>
+          <p class="text-gray-400 mb-2" th:text="${p.description}">Description</p>
+          <p class="text-gray-400 text-sm mb-1">Brand: <span th:text="${p.brand}">Brand</span></p>
+          <p class="text-gray-400 text-sm mb-3">Size: <span th:text="${p.size}">Size</span></p>
+          <p class="text-primary font-bold mb-4">₹<span th:text="${p.price}">0.00</span></p>
+
+          <div class="flex gap-2">
+            <form th:action="@{/buy-now}" method="post" class="flex-grow">
+              <input type="hidden" name="productId" th:value="${p.id}"/>
+              <button type="submit" class="w-full bg-primary text-[#111714] py-2 rounded-full font-bold hover:scale-105 transition-transform">Buy Now</button>
+            </form>
+
+            <form th:action="@{/add-to-cart}" method="post" class="flex-grow">
+              <input type="hidden" name="productId" th:value="${p.id}"/>
+              <button type="submit" class="w-full bg-gray-700 hover:bg-gray-600 py-2 rounded-full font-bold transition-colors">Add to Cart</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#1a1a1a] border-t border-gray-800 text-center py-4">
+    <p class="text-gray-400 text-sm">© 2025 Simple Shop. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

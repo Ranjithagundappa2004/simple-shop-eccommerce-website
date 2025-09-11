@@ -1,0 +1,16 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"/><title>Admin - Add Product</title></head>
+<body>
+  <h2>Admin - Add Product</h2>
+  <form method="post" action="/admin/add" enctype="multipart/form-data">
+    <label>Name: <input name="name"/></label><br/>
+    <label>Description: <textarea name="description"></textarea></label><br/>
+    <label>Brand: <input name="brand"/></label><br/>
+    <label>Size: <input name="size"/></label><br/>
+    <label>Price: <input name="price" type="number" step="0.01"/></label><br/>
+    <label>Image: <input type="file" name="image"/></label><br/>
+    <button type="submit">Add</button>
+  </form>
+</body>
+</html>

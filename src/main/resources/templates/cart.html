@@ -1,0 +1,88 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Your Cart</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: "Spline Sans", sans-serif; }
+    :root { --primary-color: #38e07b; }
+    .text-primary { color: var(--primary-color); }
+    .bg-primary { background-color: var(--primary-color); }
+  </style>
+</head>
+<body class="bg-[#1a1a1a] text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 bg-[#1a1a1a]/90 backdrop-blur-sm z-50 shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-primary">Simple Shop</h1>
+      <div class="flex gap-4">
+		<a href="/home" class="hover:text-primary">Home</a>
+        <a href="/user" class="hover:text-primary">My Account</a>
+        <a href="/logout" class="hover:text-primary">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Cart Section -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <h2 class="text-3xl font-bold text-center mb-8">Your Cart</h2>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="border-b border-gray-700">
+            <th class="py-3 px-4">Product</th>
+            <th class="py-3 px-4">Name</th>
+            <th class="py-3 px-4">Quantity</th>
+            <th class="py-3 px-4">Price</th>
+            <th class="py-3 px-4">Total</th>
+            <th class="py-3 px-4">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="ci : ${cartItems}" class="border-b border-gray-800 hover:bg-gray-800 transition-colors">
+            <td class="py-3 px-4">
+              <img th:src="${ci.product.imagePath}" alt="Product Image" class="h-20 w-20 object-cover rounded"/>
+            </td>
+            <td class="py-3 px-4" th:text="${ci.product.name}">Product Name</td>
+            <td class="py-3 px-4" th:text="${ci.quantity}">1</td>
+            <td class="py-3 px-4">₹<span th:text="${ci.product.price}">0.0</span></td>
+            <td class="py-3 px-4 font-bold text-primary" th:text="${ci.product.price * ci.quantity}">0.0</td>
+            <td class="py-3 px-4">
+              <a th:href="@{/cart/remove/{id}(id=${ci.id})}" 
+                 class="text-red-500 hover:text-red-400 font-semibold">
+                Remove
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Checkout Form -->
+    <div class="mt-8 max-w-md mx-auto">
+      <h3 class="text-2xl font-bold mb-4">Checkout</h3>
+      <form method="post" action="/cart/checkout" class="flex flex-col gap-4">
+        <label class="flex flex-col">
+          <span class="mb-2">Address:</span>
+          <textarea name="address" class="resize-none p-2 rounded bg-gray-800 text-white"></textarea>
+        </label>
+        <button type="submit" class="bg-primary py-3 rounded-full font-bold hover:scale-105 transition-transform text-[#111714]">
+          Place Order
+        </button>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#1a1a1a] border-t border-gray-800 text-center py-4">
+    <p class="text-gray-400 text-sm">© 2025 Simple Shop. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Simple Shop - Index</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Simple Shop</h1>
+    <div>
+      <a th:if="${user==null}" href="/login">Login</a>
+      <a th:if="${user==null}" href="/register">Register</a>
+      <a th:if="${user!=null}" href="/user">My Account</a>
+      <a th:if="${user!=null}" href="/logout">Logout</a>
+      <a href="/cart">Cart</a>
+    </div>
+  </header>
+  <main>
+    <div th:each="p : ${products}">
+      <img th:if="${p.imagePath!=null}" th:src="@{'/uploads/' + ${p.imagePath}}" width="150"/>
+      <h3 th:text="${p.name}">Name</h3>
+      <p th:text="${p.description}">Desc</p>
+      <p>Brand: <span th:text="${p.brand}">Brand</span></p>
+      <p>Size: <span th:text="${p.size}">Size</span></p>
+      <p>Price: ₹<span th:text="${p.price}">0.0</span></p>
+      <form th:action="@{/buy-now}" method="post" style="display:inline;">
+        <input type="hidden" name="productId" th:value="${p.id}" />
+        <button type="submit">Buy Now</button>
+      </form>
+      <form th:action="@{/add-to-cart}" method="post" style="display:inline;">
+        <input type="hidden" name="productId" th:value="${p.id}" />
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

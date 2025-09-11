@@ -1,0 +1,17 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"/><title>Cart</title></head>
+<body>
+  <h2>Your Cart</h2>
+  <div th:each="ci : ${items}">
+    <h4 th:text="${ci.product.name}">Product</h4>
+    <p>Qty: <span th:text="${ci.quantity}">1</span></p>
+    <p>Price: ₹<span th:text="${ci.product.price}">0.0</span></p>
+  </div>
+  <h3>Checkout</h3>
+  <form method="post" action="/checkout">
+    <label>Address: <textarea name="address"></textarea></label><br/>
+    <button type="submit">Place Order</button>
+  </form>
+</body>
+</html>
