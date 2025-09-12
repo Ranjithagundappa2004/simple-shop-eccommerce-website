@@ -73,23 +73,22 @@ Access admin functionalities at /admin/add.
 
 📸 Screenshots
 🏠 Homepage
-
+![Homepage](assets/screenshots/homepage.png)
 This is how the homepage looks after running the application. Users can browse products and access navigation menus.
 
 🔑 Login Page
-
+![Login](assets/screenshots/login.png)
 The login page allows registered users to sign in using their username and password.
 
 ➕ Add Product (Admin)
-
+![Add Product](assets/screenshots/admin-add-product.png)
 Admins can add new products by filling in the form and uploading images.
 
 🚀 How to Use This Repository
 
 Clone the repository:
 
-git clone https://github.com/YourUsername/simple-shop-next.git
-
+git clone https://github.com/Ranjithagundappa2004/simple-shop-eccommerce-website.git
 
 Follow the setup steps above to configure and run the project.
 
@@ -119,33 +118,5 @@ Feel free to fork this project, improve it, or report issues. Pull requests are 
 This project is open-source and available under the MIT License.
 
 
----
-
-## ✅ Important Steps to Make It Work
-
-### 1. **Create the folders**
-- `assets/screenshots/` inside your project directory.
-
-### 2. **Take screenshots**
-- Homepage → `homepage.png`
-- Login page → `login.png`
-- Admin add product page → `admin-add-product.png`
-
-Save them in the `assets/screenshots/` folder.
-
-### 3. **Link them in the README**
-Use this format:
-```markdown
-![Homepage](assets/screenshots/homepage.png)
 
 
-GitHub will automatically display the images once pushed.
-
-4. Link pages
-
-Since this is a web app running locally, you can link pages like this:
-
-[http://localhost:8080/register](http://localhost:8080/register)
-
-
-Anyone running the app locally can click the link and access the page
