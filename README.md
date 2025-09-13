@@ -1,10 +1,13 @@
 # Sample Screenshots of my simple-ecommerce-website
 
 ### Login Page
-<img src="assets/screenshots/login.png" alt="Login Screenshot" width="500" />
+<img src="assets/screenshots/login.png" alt="Login Screenshot" width="700" />
 
 ### Admin Home Page
-<img src="assets/screenshots/admin-add-product.png" alt="Login Screenshot" width="500" />
+<img src="assets/screenshots/admin-add-product.png" alt="Login Screenshot" width="700" />
+
+### Index Page (Main Page)
+<img src="assets/screenshots/homepage.png" alt="Login Screenshot" width="500" />
 
 
 # Simple Shop - Spring Boot (Minimal E-Commerce App)
