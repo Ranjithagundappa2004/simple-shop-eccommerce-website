@@ -1,3 +1,9 @@
+# Sample Screenshots of my simple-ecommerce-website
+
+### Login Page
+<img src="assets/screenshots/login.png" alt="Login Screenshot" width="500" />
+
+
 # Simple Shop - Spring Boot (Minimal E-Commerce App)
 
 ## 📖 Overview
@@ -117,10 +123,7 @@ Feel free to fork this project, improve it, or report issues. Pull requests are 
 
 This project is open-source and available under the MIT License.
 
-## Sample Screenshots of my simple-ecommerce-website
 
-### Login Page
-<img src="assets/screenshots/login.png" alt="Login Screenshot" width="500" />
 
 
 
