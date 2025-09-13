@@ -3,6 +3,9 @@
 ### Login Page
 <img src="assets/screenshots/login.png" alt="Login Screenshot" width="500" />
 
+### Admin Home Page
+<img src="assets/screenshots/admin-add-product.png" alt="Login Screenshot" width="500" />
+
 
 # Simple Shop - Spring Boot (Minimal E-Commerce App)
 
