@@ -120,7 +120,8 @@ This project is open-source and available under the MIT License.
 ## Sample Screenshots of my simple-ecommerce-website
 
 ### Login Page
-![Login Screenshot](assets/screenshots/login.png)
+<img src="assets/screenshots/login.png" alt="Login Screenshot" width="500" />
+
 
 
 
