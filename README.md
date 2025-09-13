@@ -117,6 +117,12 @@ Feel free to fork this project, improve it, or report issues. Pull requests are 
 
 This project is open-source and available under the MIT License.
 
+<h1>Sample Screenshots of my simple-ecommerce-website</h2>
+
+<h3>Login Page </h3>
+<img src="assets/screenshots/login.png" alt="Login Screenshot" width="500" />
+
+
 
 
 
